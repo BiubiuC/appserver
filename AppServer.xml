@@ -5,11 +5,11 @@
 		<!-- 指定应用静态变量值 -->
 		<!-- 分发器,如果此章节定义,且class不为空,使用class所指定的分发器 -->
 		<def_dispatcher> 
-			<dispatch_class></dispatch_class>
+			<dispatch_class>com.arcst.selector.DefaultSelectDispatcher</dispatch_class>
 		</def_dispatcher>
 		<!-- 监听器,如果此章节定义,且class不为空,使用class所指定的监听器 -->
 		<def_netaccepter>
-			<netaccepter_class></netaccepter_class>
+			<netaccepter_class>com.arcst.net.accept.DefaultNetAccepter</netaccepter_class>
 		</def_netaccepter>
 	</constValues>
 	
