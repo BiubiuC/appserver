@@ -1,4 +1,4 @@
-package com.arcst.adapter.agreement;
+package com.arcst.adapter.protocol;
 
 public interface Protocol {
 

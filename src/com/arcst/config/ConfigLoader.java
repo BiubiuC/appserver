@@ -1,10 +1,30 @@
 package com.arcst.config;
 
 import org.apache.log4j.Logger;
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
+import org.dom4j.Element;
+import org.dom4j.io.SAXReader;
 
 public class ConfigLoader {
 	
 	static Logger logger = Logger.getLogger(ConfigLoader.class);
+	static SAXReader sax = null;
+	static Document doc = null;
+	static {
+		try {
+			sax = new SAXReader();
+			doc = sax.read(ConstValue.APPSERVER_CONF);
+		} catch (DocumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if (sax == null || doc == null) {
+			throw new RuntimeException();
+		}
+		Element root = doc.getRootElement();
+		System.out.println(root);
+	}
 	
 	public static void loadProxy() {
 		// TODO Auto-generated method stub
