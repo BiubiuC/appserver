@@ -1,0 +1,60 @@
+<serverRoot>
+	
+	<version>1.0</version>
+	<constValues>
+		<!-- 指定应用静态变量值 -->
+		<!-- 分发器,如果此章节定义,且class不为空,使用class所指定的分发器 -->
+		<def_dispatcher> 
+			<dispatch_class></dispatch_class>
+		</def_dispatcher>
+		<!-- 监听器,如果此章节定义,且class不为空,使用class所指定的监听器 -->
+		<def_netaccepter>
+			<netaccepter_class></netaccepter_class>
+		</def_netaccepter>
+	</constValues>
+	
+	<firstConfPath>configfile/FConf.ini</firstConfPath>
+	<secondConfPath>configfile/SConf.ini</secondConfPath> <!-- 可以为空 -->
+	<thridConfPath>configfile/TConf.ini</thridConfPath> <!-- 可以为空 -->
+	
+	<!-- 数据库定义 启用数据库需配置used为Y 通常不启用,数据库连接由其他框架实现 -->
+	<database used='N'>
+		<connections max='5'>
+			<connection>
+				<dbtype>Oracle</dbtype> <!-- Oracle/MySQL/Infomix/DB2 -->
+				<connstr>jdbc:oracle:thin:@//127.0.0.1:1521/ORCL</connstr>
+				<username></username>
+				<password></password>
+			</connection>
+		</connections>
+	</database>
+	
+	<!-- 工作线程定义 -->
+	<workthread min='2' max='5'>
+	</workthread>
+	
+	<!-- 业务池定义 -->
+	<busipool  min='10' max='20'>
+	</busipool>
+	
+	<!-- 对象池定义 统计数量不包含系统对象 -->
+	<beanpool min='50' max='100'>
+	</beanpool>
+	
+	<!-- 协议定义 -->
+	<protocols>
+		<protocol type='json' port='4001'>
+		</protocol>
+		<protocol type='constlen' port='4002' lenhead='4'>
+		</protocol>
+		<protocol type='xml' port='4003'>
+		</protocol>
+	</protocols>
+	
+	<monitor port="3221">
+	</monitor>
+	
+	<manager port='3222'>
+	</manager>
+	
+</serverRoot>
