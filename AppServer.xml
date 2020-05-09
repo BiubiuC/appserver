@@ -17,10 +17,18 @@
 	<secondConfPath>configfile/SConf.ini</secondConfPath> <!-- 可以为空 -->
 	<thridConfPath>configfile/TConf.ini</thridConfPath> <!-- 可以为空 -->
 	
+	<plug-in>
+		<unit name=''></unit>
+	</plug-in>
+	
+	<proxy>
+		
+	</proxy>
+	
 	<!-- 数据库定义 启用数据库需配置used为Y 通常不启用,数据库连接由其他框架实现 -->
-	<database used='N'>
-		<connections max='5'>
-			<connection>
+	<database used='Y'>
+		<connections>
+			<connection max='5'>
 				<dbtype>Oracle</dbtype> <!-- Oracle/MySQL/Infomix/DB2 -->
 				<connstr>jdbc:oracle:thin:@//127.0.0.1:1521/ORCL</connstr>
 				<username></username>
@@ -38,7 +46,8 @@
 	</busipool>
 	
 	<!-- 对象池定义 统计数量不包含系统对象 -->
-	<beanpool min='50' max='100'>
+	<beanpool>
+		<bean min='5' max='50'>com.arcst.data.DefaultSDO</bean>
 	</beanpool>
 	
 	<!-- 协议定义 -->

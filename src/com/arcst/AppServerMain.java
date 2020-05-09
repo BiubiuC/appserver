@@ -39,6 +39,7 @@ public class AppServerMain {
 		ConfigLoader.loadThridCfgFile();
 		ConfigLoader.loadPluggin();
 		ConfigLoader.loadProxy();
+		ConfigLoader.loadOths();
 	}
 	private static void initPool() {
 		if(ConstValue.IS_USED_DB) {
@@ -55,7 +56,7 @@ public class AppServerMain {
 		/* init dispatcher */
 		if(ConstValue.DEF_DISPATCHER) {
 			try {
-				Class<?> cls = Class.forName((String) AppServerConf.getConf().get(ConstValue.DISPATCH_CLASS));
+				Class<?> cls = Class.forName(ConstValue.DISPATCH_CLASS);
 				dispatcher = (SelectDispatcher)cls.newInstance();
 			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
 				// TODO Auto-generated catch block
@@ -73,7 +74,7 @@ public class AppServerMain {
 		/* init listener */
 		if(ConstValue.DEF_NETACCEPTER) {
 			try {
-				Class<?> cls = Class.forName((String) AppServerConf.getConf().get(ConstValue.NETACCEPTER_CLASS));
+				Class<?> cls = Class.forName(ConstValue.NETACCEPTER_CLASS);
 				netAccepter = (NetAccepter)cls.newInstance();
 			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
 				// TODO Auto-generated catch block

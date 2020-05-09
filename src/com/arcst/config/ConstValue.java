@@ -5,9 +5,10 @@ import java.io.File;
 public class ConstValue {
 
 	
+	public static final String APPSERVER_CONF = "AppServer.xml";
 	public static final Object CURR_DISPATCHER = "__CURR_DISPATCHER__";
 	public static final Object MAIN_NETACCEPTER = "__MAIN_NETACCEPTER__";
-	public static final String APPSERVER_CONF = "AppServer.xml";
+	public static final String CURR_DBCONNINFO = "__CURR_DBCONN_INFO__";
 	
 	
 	
