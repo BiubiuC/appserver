@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import com.arcst.bean.DataConnInfo;
 import com.arcst.exception.InfoObjAlreadySetEndException;
 
 public class DataBasePoolInfo implements BasePoolInfo{
@@ -54,24 +55,4 @@ public class DataBasePoolInfo implements BasePoolInfo{
 		return condefmap.get(name);
 	}
 	
-}
-class DataConnInfo{
-	int maxnum;
-	String type;
-	String connstr;
-	String username;
-	String password;
-	
-	@Override
-	public int hashCode() {
-		return maxnum+type.hashCode()+connstr.hashCode()+username.hashCode()+password.hashCode();
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if(!(obj instanceof DataConnInfo))
-			return false;
-		DataConnInfo dst = (DataConnInfo)obj;
-		return maxnum==dst.maxnum && type.equals(dst.type) && connstr.equals(dst.connstr) && username.equals(dst.username) && password.equals(dst.password);
-	}
 }
